@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot Test</title>
+</head>
+<body>
+    <h1>Telegram Bot Test</h1>
+    <button id="sendMessageBtn">Enviar mensaje de prueba</button>
+    <script>
+        // Configuración de Telegram
+        const BOT_TOKEN = '6774082719:AAEEpjTfH5GiQAbsAZCPJETT-URaTd-iT_8';
+        const CHAT_ID = '6557898799';
+        const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        // Función para enviar mensaje
+        function sendMessage(text) {
+            fetch(TELEGRAM_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Mensaje enviado:', data);
+                alert('Mensaje enviado');
+            })
+            .catch(error => {
+                console.error('Error enviando mensaje:', error);
+                alert('Error enviando mensaje');
+            });
+        }
+
+        // Evento para el botón
+        document.getElementById('sendMessageBtn').addEventListener('click', function() {
+            sendMessage('Este es un mensaje de prueba desde el bot');
+        });
+    </script>
+</body>
+</html>

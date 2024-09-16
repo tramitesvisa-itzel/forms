@@ -1,0 +1,17 @@
+.section {
+    display: none;
+}
+
+.section_oculta {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.required {
+    color: red;
+    font-size: 0.9em;
+    margin-left: 5px;
+}

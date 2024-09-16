@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/icorar.ico" type="image/x-icon">
+    <!-- Agregar iconos de redes sociales desde un CDN como FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles_display.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="aaa.js" defer></script>
+    <title>Telegram Bot Test</title>
+</head>
+<body>
+    <h1>Telegram Bot Test</h1>
+    <button id="sendMessageBtn">Enviar mensaje de prueba</button>
+
+    <script>
+        const BOT_TOKEN = '6774082719:AAEEpjTfH5GiQAbsAZCPJETT-URaTd-iT_8';
+        const CHAT_ID = '6557898799';
+        const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        const mensaje = `
+<b>🎉 <u>¡Actualización en Nuestra Página de Formularios!</u> 🎉</b>\n\n
+¡Hola Itzel! 😄\n\n
+hemos renovado por completo la página de formularios.\n\n
+Ahora puedes disfrutar de un diseño más moderno y funcional.\n\n
+<b>Echa un vistazo al nuevo diseño aquí:</b> 
+<a href="https://tramitesvisa-itzel.github.io/forms/">Nuevo Diseño</a>\n\n
+¡Gracias por tu atención y disfruta del nuevo sistema!
+`;
+
+        document.getElementById('sendMessageBtn').addEventListener('click', () => {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: mensaje,
+                    parse_mode: 'HTML'
+                })
+            };
+
+            fetch(TELEGRAM_API_URL, options)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('¡Mensaje enviado correctamente!');
+                    } else {
+                        alert('Error al enviar el mensaje: ' + data.description);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error de red:', error);
+                    alert('Error de red: ' + error);
+                });
+        });
+    </script>
+</body>
+</html>

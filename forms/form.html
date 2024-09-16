@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/client_ico_256.ico" image/x-icon">
+    <!-- Agregar iconos de redes sociales desde un CDN como FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles_display.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="aaa.js" defer></script>
+    <title>Formulario</title>
+
+
+
+
+
+    <style>
+        /* Agrega aquí el CSS necesario para el estilo del formulario y del encabezado */
+        .header,
+        #footer {
+            display: block;
+            /* Asegúrate de que el encabezado sea visible por defecto */
+        }
+    </style>
+
+
+    <style>
+        /* Estilos del modal */
+        .modal {
+            display: none;
+            /* Ocultar el modal por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Fondo semi-transparente */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Flexbox para centrar el contenido del modal */
+        }
+
+        /* Contenido del modal */
+        .modal-content {
+            position: relative;
+            /* Necesario para el logo */
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            /* Ajusta el tamaño máximo del contenido del modal según sea necesario */
+            border-radius: 8px;
+            /* Opcional: agregar bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Opcional: agregar sombra */
+            z-index: 1;
+            /* Asegura que el contenido esté sobre el logo */
+        }
+
+        /* Estilos del logo en el modal */
+        .logo-modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Centra el logo en el medio del modal */
+            z-index: 0;
+            /* Asegura que el logo esté detrás del contenido del modal */
+        }
+
+        .logo-modal .logo-img {
+            width: 100px;
+            /* Ajusta el tamaño del logo según sea necesario */
+            height: auto;
+        }
+
+        /* Botón de cerrar */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Opcional: Deshabilitar el formulario */
+        .form-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+    <style>
+        .social-media {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-media h4 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .social-media .icons a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-media .icons a i {
+            transition: transform 0.3s ease;
+        }
+
+        .social-media .icons a:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Colores originales para los iconos de redes sociales */
+        .fab.fa-facebook {
+            color: #3b5998;
+            /* Color oficial de Facebook */
+        }
+
+        .fab.fa-instagram {
+            color: #E1306C;
+            /* Color oficial de Instagram */
+        }
+
+        .fab.fa-whatsapp {
+            color: #25D366;
+            /* Color oficial de WhatsApp */
+        }
+
+        .fab.fa-facebook-messenger {
+            color: #0078FF;
+            /* Color oficial de Messenger */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+        }
+
+        .copyright_text a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Espaciado adecuado para dispositivos grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                padding-right: 15px;
+            }
+        }
+
+        /* Estilo en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+
+        footer {
+            background-color: rgb(11, 2, 2);
+            color: #fff;
+            padding: 0px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: rgb(39, 17, 211);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: rgb(39, 17, 211);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    </style>
+
+
+    <style>
+        .input-correcto {
+            border: 2px solid green;
+        }
+
+        .input-incorrecto {
+            border: 2px solid red;
+        }
+
+        .mensaje-error {
+            color: red;
+            font-size: 15px;
+            display: none;
+        }
+
+        .mensaje-correcto {
+            color: rgb(5, 192, 5);
+            font-size: 15px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" id="header">
+        <header>
+            <!-- <div class="logo-container">
+                <img src="/images/ICOR.ico" alt="Logo" class="logo-img">
+            </div> -->
+            <h1>Formulario de Información y Documentos</h1>
+        </header>
+    </div>
+
+    <form id="dataForm">
+        <div class="container">
+
+            <div class="section active" id="tipo_solicitud_section">
+
+                <div class="info">
+                    <div class="logo-container">
+                        <img src="../images/client_ico_256.ico" alt="Logo" class="logo-img">
+                    </div>
+                    <h2>Formulario de Captura de Datos</h2>
+                    En esta sección, seleccione el tipo de solicitud que está realizando, ya sea "Primera Vez" o
+                    "Renovación". Esta información es necesaria para determinar el proceso adecuado para su solicitud.
+                    Asegúrese de seleccionar una opción del menú desplegable.
+                </div>
+                <h3>Seleccionar Tipo de Solicitud:</h3>
+                <!-- Selección de Tipo de Solicitud -->
+                <section class="seleccion">
+
+                    <label for="tipo_solicitud">
+                    </label>
+                    <select id="tipo_solicitud" name="tipo_solicitud" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="primera_vez">Primera Vez</option>
+                        <option value="renovacion">Renovación</option>
+                    </select>
+                    <div id="tipo_solicitud_error" class="mensaje-error">Este campo es obligatorio.</div>
+                    <div id="tipo_solicitud_correcto" class="mensaje-correcto">Seleccionado correctamente.</div>
+                </section>
+
+                <hr>
+                <hr>
+                <!-- Información Para Renovación -->
+                <div class="section_renovacion" style="display:none;">
+                    <br><br>
+                    <div class="info">
+                        <h3>Información Para Renovación</h3>
+                        Si seleccionó "Renovación", proporcione información adicional, incluyendo la fecha de su última
+                        visita a EE.UU., la duración de su estancia, y la cantidad de días o meses que pasó en el país.
+                        Además, adjunte imágenes de frente y reverso de su visa. Complete todos los campos requeridos y
+                        adjunte los documentos solicitados.
+                    </div>
+                    <h4>Información Para Renovación</h4>
+                    <label for="fecha_ultimavisita_usa">Fecha Última Visita a USA:</label>
+                    <input type="date" id="fecha_ultimavisita_usa" name="fecha_ultimavisita_usa"
+                        placeholder="Selecciona la fecha">
+                    <div id="fecha_ultimavisita_usa_error" class="mensaje-error">Este campo es obligatorio.</div>
+                    <div id="fecha_ultimavisita_usa_correcto" class="mensaje-correcto">Fecha válida.</div>
+                    <br><br>
+
+                    <label for="duracion_en_usa">Duración en USA:</label>
+                    <select id="duracion_en_usa" name="duracion_en_usa">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="días">Días</option>
+                        <option value="meses">Meses</option>
+                    </select>
+                    <div id="duracion_en_usa_error" class="mensaje-error">Este campo es obligatorio.</div>
+                    <div id="duracion_en_usa_correcto" class="mensaje-correcto">Duración válida.</div>
+                    <br><br>
+
+                    <label for="cantidad_dias_meses">Cantidad de Días o Meses:</label>
+                    <input type="number" id="cantidad_dias_meses" name="cantidad_dias_meses"
+                        placeholder="Ingresa cantidad">
+                    <div id="cantidad_dias_meses_error" class="mensaje-error">Este campo es obligatorio.</div>
+                    <div id="cantidad_dias_meses_correcto" class="mensaje-correcto">Cantidad válida.</div>
+
+                    <br><br>
+                    <hr>
+                    <br><br>
+
+
+
+
+                    <div class="info">
+                        <h3>Adjuntar Imagen de Visa</h3>
+
+                    </div>
+                    <br><br>
+
+
+                    <h4>Imagen Frente</h4>
+
+                    <label for="imagen_frente">Visa imagen de Frente:</label>
+                    <input type="file" id="imagen_frente" name="imagen_frente" accept="image/*">
+
+                    <h4>Imagen Reverso</h4>
+
+
+                    <label for="imagen_reverso">Visa imagen de Reverso:</label>
+                    <input type="file" id="imagen_reverso" name="imagen_reverso" accept="image/*">
+                </div>
+
+                <br><br>
+                <hr>
+
+                <div class="info">
+                    <h3>Información Para Primera Vez</h3>
+                    Si seleccionó "Renovación", proporcione información adicional, incluyendo la fecha de su última
+                    visita a
+                    EE.UU., la duración de su estancia, y la cantidad de días o meses que pasó en el país. Además,
+                    adjunte
+                    imágenes de frente y reverso de su visa. Complete todos los campos requeridos y adjunte los
+                    documentos
+                    solicitados.
+                </div>
+                <h4>Registro de Nombre Número Móvil y Correo</h4>
+
+                <br><br>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+                <div id="nombre_error" class="mensaje-error">Este campo es obligatorio y debe contener solo letras.
+                </div>
+                <div id="nombre_correcto" class="mensaje-correcto">Nombre válido.</div>
+                <br><br>
+
+                <label for="numero_telefonico">Número Telefónico:</label>
+                <input type="text" id="numero_telefonico" name="numero_telefonico" placeholder="Ej: +1234567890"
+                    required>
+                <div id="numero_telefonico_error" class="mensaje-error">Por favor ingresa un número telefónico válido.
+                </div>
+                <div id="numero_telefonico_correcto" class="mensaje-correcto">Número válido.</div>
+                <br><br>
+
+
+                <label for="correo_electronico">Correo Electrónico:</label>
+                <input type="email" id="correo_electronico" name="correo_electronico"
+                    placeholder="Ej. correo@ejemplo.com">
+                <div id="correo_electronico_error" class="mensaje-error">Este campo es obligatorio y debe contener un
+                    correo electrónico válido.</div>
+                <div id="ccorreo_electronico_correcto" class="mensaje-correcto">Correo electrónico válido.</div>
+
+            </div>
+            <br><br>
+
+            <hr>
+
+
+            <!-- Datos Personales -->
+            <div class="section">
+
+                <div class="info">
+                    <h3></h3>
+
+                </div>
+
+                <h4></h4>
+                <br><br>
+                <label for="motivo_viaje">Motivo de viaje a Estados Unidos:</label>
+                <select id="motivo_viaje" name="motivo_viaje" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="turismo">Turismo - Visitar lugares turísticos, conocer la cultura y disfrutar de
+                        actividades recreativas.</option>
+                    <option value="negocios">Negocios - Asistir a reuniones, conferencias, ferias comerciales o eventos
+                        profesionales.</option>
+                    <option value="estudios">Estudios - Realizar cursos, talleres, seminarios o estudios académicos en
+                        una institución educativa.</option>
+                    <option value="visita_familiar">Visita Familiar - Reunirse con familiares que residen en Estados
+                        Unidos.</option>
+                    <option value="tratamiento_medico">Tratamiento Médico - Recibir atención médica o tratamientos
+                        especializados.</option>
+                    <option value="cultural">Cultural - Participar en eventos culturales, artísticos o festivales.
+                    </option>
+                    <option value="trabajo">Trabajo - Buscar empleo, iniciar un nuevo trabajo o realizar actividades
+                        laborales.</option>
+                    <option value="conferencia">Conferencia - Asistir a conferencias, simposios o eventos académicos.
+                    </option>
+                    <option value="investigacion">Investigación - Realizar investigaciones, estudios científicos o
+                        trabajos académicos.</option>
+                    <option value="deportes">Deportes - Participar en competiciones deportivas o eventos relacionados
+                        con el deporte.</option>
+                    <option value="inversiones">Inversiones - Invertir en propiedades, negocios u otros activos.
+                    </option>
+                    <option value="vacaciones">Vacaciones - Disfrutar de un descanso prolongado o tiempo libre.</option>
+                    <option value="religioso">Religioso - Participar en eventos religiosos, peregrinaciones o
+                        actividades de la fe.</option>
+                    <option value="programa_intercambio">Programa de Intercambio - Participar en programas de
+                        intercambio cultural o académico.</option>
+                    <option value="otra_razon">Otra Razón - Motivo que no se ajusta a las categorías anteriores.
+                    </option>
+                </select>
+                <div id="motivo_viaje_error" class="mensaje-error" style="display:none;">Este campo es obligatorio.
+                </div>
+                <div id="motivo_viaje_correcto" class="mensaje-correcto" style="display:none;">Selección válida.</div>
+       
+
+                <br><br>
+
+                <label for="duración_de_su_viaje">Duración de Viaje:</label>
+                <select id="duración_de_su_viaje" name="duración_de_su_viaje">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="días">Días</option>
+                    <option value="meses">Meses</option>
+                </select>
+                <div id="duracion_en_usa_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="duracion_en_usa_correcto" class="mensaje-correcto">Duración válida.</div>
+                <br><br>
+
+                <label for="duración_de_su_viaje_cantidad_dias_meses">Cantidad de Días o Meses:</label>
+                <input type="number" id="duración_de_su_viaje_cantidad_dias_meses"
+                    name="duración_de_su_viaje_cantidad_dias_meses" placeholder="Ingresa cantidad">
+                <div id="duración_de_su_viaje_cantidad_dias_meses_error" class="mensaje-error">Este campo es
+                    obligatorio.
+                </div>
+                <div id="duración_de_su_viaje_cantidad_dias_meses_correcto" class="mensaje-correcto">Cantidad válida.
+                </div>
+
+                <br><br>
+
+                <label for="fecha_motivo_viaje">Fecha de Tentativa de Viaje a Estados Unidos:</label>
+                <input type="date" id="fecha_motivo_viaje" name="fecha_motivo_viaje" placeholder="Selecciona la fecha">
+                <div id="fecha_motivo_viaje_usa_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="fecha_motivo_viaje_usa_correcto" class="mensaje-correcto">Fecha válida.</div>
+                <br><br>
+
+                <label for="dirección_hospedara">Dirección Completa Donde se Hospedará :</label>
+                <textarea id="dirección_hospedara" name="dirección_hospedara" rows="3"
+                    placeholder="Escribe Dirección Completa Donde se Hospedará"></textarea>
+                <div id="dirección_hospedara_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="dirección_hospedara_correcto" class="mensaje-correcto">Lugar válido.</div>
+                <br><br>
+
+
+                <label for="viaja_acompañado">Viaja Acompañado?:</label>
+                <select id="viaja_acompañado" name="viaja_acompañado"
+                    onchange="toggleSection('viaja_acompañado', 'si', 'viaja_acompañado_si')">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                    <option value="no_estoy_seguro">No Estoy Seguro</option>
+                </select>
+                <br><br>
+        
+                <div class="viaja_acompañado_si" style="display: none;">
+                    <label for="nombre_completo_persona_con_quien_viaja">Nombre Completo de la Persona con la que
+                        Viaja:</label>
+                    <input type="text" id="nombre_completo_persona_con_quien_viaja"
+                        name="nombre_completo_persona_con_quien_viaja"
+                        placeholder="Escribe el Nombre Completo de la persona con la que Viaja">
+                    <div id="nombre_completo_persona_con_quien_viaja_error" class="mensaje-error">Este campo es
+                        obligatorio.
+                    </div>
+                    <div id="nombre_completo_persona_con_quien_viaja_correcto" class="mensaje-correcto">Persona con
+                        la
+                        que Viaja.
+                    </div>
+                    <br><br>
+                </div>
+                <br><br>
+
+                <hr>
+            </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Datos Personales -->
+            <div class="section">
+
+                <div class="info">
+                    <h3>Información Datos Personales</h3>
+                    Ingrese su información personal básica, como apellidos, nombres, fecha de nacimiento, sexo y
+                    lugar
+                    de
+                    nacimiento. Esta información es esencial para su registro y debe ser precisa. Complete todos
+                    los
+                    campos
+                    obligatorios para asegurar que su registro sea completo y correcto.
+                </div>
+
+                <h4>Datos Personales</h4>
+                <br><br>
+                <label for="apellido_paterno">Apellido Paterno:</label>
+                <input type="text" id="apellido_paterno" name="apellido_paterno"
+                    placeholder="Escribe tu apellido paterno" required>
+                <div id="apellido_paterno_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="apellido_paterno_correcto" class="mensaje-correcto">Apellido válido.</div>
+                <br><br>
+
+                <label for="apellido_materno">Apellido Materno:</label>
+                <input type="text" id="apellido_materno" name="apellido_materno"
+                    placeholder="Escribe tu apellido materno" required>
+                <div id="apellido_materno_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="apellido_materno_correcto" class="mensaje-correcto">Apellido válido.</div>
+                <br><br>
+
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" placeholder="Escribe tus nombres" required>
+                <div id="nombres_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="nombres_correcto" class="mensaje-correcto">Nombre válido.</div>
+                <br><br>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+                    placeholder="Selecciona tu fecha de nacimiento" required>
+                <div id="fecha_nacimiento_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="fecha_nacimiento_correcto" class="mensaje-correcto">Fecha válida.</div>
+                <br><br>
+
+                <label for="sexo">Sexo:</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+                    <label><input type="radio" name="sexo" value="femenino"> Femenino</label>
+                </div>
+
+                <div id="sexo_error" class="mensaje-error">Por favor selecciona un sexo.</div>
+                <div id="sexo_correcto" class="mensaje-correcto">Sexo seleccionado.</div>
+                <br><br>
+
+                <label for="lugar_nacimiento">Lugar de Nacimiento:</label>
+                <textarea id="lugar_nacimiento" name="lugar_nacimiento" rows="3"
+                    placeholder="Escribe tu lugar de nacimiento"></textarea>
+                <div id="lugar_nacimiento_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="lugar_nacimiento_correcto" class="mensaje-correcto">Lugar válido.</div>
+                <br><br>
+
+
+
+            </div>
+            <!-- Estado Civil -->
+            <div class="section">
+                <div class="info">
+                    <h3>Estado Civil</h3>
+                    Seleccione su estado civil actual de la lista proporcionada. Esta información es importante
+                    para
+                    entender su situación personal y puede influir en diferentes aspectos de su solicitud.
+                </div>
+
+                <section class="estado-civil">
+
+                    <div class="checkbox-group">
+                        <label for="casado"><input type="radio" id="casado" name="estado_civil" value="Casado">
+                            Casado</label>
+                        <label for="soltero"><input type="radio" id="soltero" name="estado_civil" value="Soltero">
+                            Soltero</label>
+                        <label for="divorciado"><input type="radio" id="divorciado" name="estado_civil"
+                                value="Divorciado">
+                            Divorciado</label>
+                        <label for="viudo"><input type="radio" id="viudo" name="estado_civil" value="Viudo">
+                            Viudo</label>
+
+                        <label for="union_libre"><input type="radio" id="union_libre" name="estado_civil"
+                                value="Unión Libre">
+                            Unión Libre</label>
+                    </div>
+                    <div id="estado_civil_error" class="mensaje-error">Por favor selecciona tu estado civil.
+                    </div>
+                    <div id="estado_civil_correcto" class="mensaje-correcto">Estado civil seleccionado.</div>
+
+                </section>
+                <hr>
+                <hr>
+
+
+
+
+                <!-- Datos de Cónyuge -->
+                <div class="section_casado" style="display:none;">
+                    <div class="info">
+                        Proporcione los detalles completos sobre su cónyuge, incluyendo nombre completo, fecha
+                        de
+                        nacimiento y lugar de nacimiento. Esta información es necesaria para completar su perfil
+                        personal.
+                    </div>
+                    <h3>Datos de Cónyuge</h3>
+                    <br><br>
+                    <label for="nombre_completo_conyuge">Nombre Completo del Cónyuge:</label>
+                    <input type="text" id="nombre_completo_conyuge" name="nombre_completo_conyuge"
+                        placeholder="Escribe el nombre completo del cónyuge">
+                    <br><br>
+                    <label for="fecha_nacimiento_conyuge">Fecha de Nacimiento del Cónyuge:</label>
+                    <input type="date" id="fecha_nacimiento_conyuge" name="fecha_nacimiento_conyuge"
+                        placeholder="Selecciona la fecha de nacimiento del cónyuge">
+                    <br><br>
+                    <label for="lugar_nacimiento_conyuge">Lugar de Nacimiento del Cónyuge:</label>
+                    <textarea id="lugar_nacimiento_conyuge" name="lugar_nacimiento_conyuge" rows="3"
+                        placeholder="Escribe el lugar de nacimiento del cónyuge"></textarea>
+                    <br><br>
+                </div>
+
+
+                <div class="section_divorciado" style="display:none;">
+                    <div class="info">
+                        Complete los detalles sobre su matrimonio anterior, incluyendo nombre de la expareja,
+                        fechas
+                        relevantes y motivos de la separación. Esta información ayudará a entender su historial
+                        matrimonial.
+                    </div>
+                    <h3>Información del Matrimonio Anterior</h3>
+                    <br><br>
+                    <label for="nombre_completo_expareja">Nombre Completo de la Expareja:</label>
+                    <input type="text" id="nombre_completo_expareja" name="nombre_completo_expareja"
+                        placeholder="Escriba el nombre completo de la expareja">
+                    <br><br>
+                    <label for="fecha_union_expareja">Fecha de la Unión Matrimonial con la Expareja:</label>
+                    <input type="date" id="fecha_union_expareja" name="fecha_union_expareja">
+                    <br><br>
+                    <label for="lugar_nacimiento_expareja">Lugar de Nacimiento de la Expareja:</label>
+                    <input type="text" id="lugar_nacimiento_expareja" name="lugar_nacimiento_expareja"
+                        placeholder="Escriba el lugar de nacimiento de la expareja">
+                    <br><br>
+                    <label for="motivo_separacion_expareja">Motivo de la Separación:</label>
+                    <textarea id="motivo_separacion_expareja" name="motivo_separacion_expareja" rows="3"
+                        placeholder="Describa brevemente el motivo de la separación"></textarea>
+                    <br><br>
+                    <label for="fecha_divorcio_expareja">Fecha de Disolución del Matrimonio:</label>
+                    <input type="date" id="fecha_divorcio_expareja" name="fecha_divorcio_expareja">
+                    <br><br>
+                    <label for="pais_termino_matrimonio">País de Disolución del Matrimonio:</label>
+                    <input type="text" id="pais_termino_matrimonio" name="pais_termino_matrimonio"
+                        placeholder="Escriba el país donde se disolvió el matrimonio">
+                    <br><br>
+                </div>
+
+                <!-- Datos de Cónyuge Unión Libre -->
+                <div class="section_union_libre" style="display:none;">
+                    <div class="info">
+                        <h4>Datos de Cónyuge Union Libre</h4>
+                        Complete la información sobre su pareja en unión libre, incluyendo nombre completo,
+                        fecha de
+                        nacimiento y lugar de nacimiento. Esta sección es importante para registrar todos los
+                        detalles
+                        relevantes sobre su relación.
+                    </div>
+                    <br><br>
+                    <label for="nombre_completo_conyuge_union_libre">Nombre Completo del Cónyuge Unión
+                        Libre:</label>
+                    <input type="text" id="nombre_completo_conyuge_union_libre"
+                        name="nombre_completo_conyuge_union_libre" placeholder="Escribe el nombre completo del cónyuge">
+                    <br><br>
+                    <label for="fecha_nacimiento_conyuge_union_libre">Fecha de Nacimiento del Cónyuge Unión
+                        Libre:</label>
+                    <input type="date" id="fecha_nacimiento_conyuge_union_libre"
+                        name="fecha_nacimiento_conyuge_union_libre"
+                        placeholder="Selecciona la fecha de nacimiento del cónyuge">
+                    <br><br>
+                    <label for="lugar_nacimiento_conyuge_union_libre">Lugar de Nacimiento del Cónyuge Unión
+                        Libre:</label>
+                    <textarea id="lugar_nacimiento_conyuge_union_libre" name="lugar_nacimiento_conyuge_union_libre"
+                        rows="3" placeholder="Escribe el lugar de nacimiento del cónyuge"></textarea>
+                    <br><br>
+                </div>
+
+            </div>
+            <!-- Sección de Datos Académicos -->
+            <div class="section">
+
+                <!-- Selección de Tipo de Escolaridad -->
+                <div class="info">
+                    <h3>Datos Académicos</h3>
+                    En esta sección, seleccione su nivel de escolaridad actual. Luego, proporcione información
+                    adicional
+                    sobre la escuela a la que asistió, incluyendo el nombre, dirección y fechas de inicio y
+                    finalización. Asegúrese de llenar todos los campos requeridos para que la información sea
+                    completa.
+                </div>
+                <div class="lisbox">
+
+                    <label for="escolaridad">
+                        <h4>Seleccionar Escolaridad:</h4>
+                    </label>
+                    <!-- Agrega el atributo required para hacer la selección obligatoria -->
+                    <select id="escolaridad" name="escolaridad" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="primaria">Primaria</option>
+                        <option value="secundaria">Secundaria</option>
+                        <option value="preparatoria">Preparatoria</option>
+                        <option value="universidad">Universidad</option>
+                        <option value="posgrado">Posgrado</option>
+                    </select>
+                    <!-- Mensajes de error y confirmación -->
+                    <div id="escolaridad_error" class="mensaje-error" style="display: none;">Por favor
+                        selecciona
+                        una
+                        opción.</div>
+                    <div id="escolaridad_correcto" class="mensaje-correcto" style="display: none;">Escolaridad
+                        seleccionada.</div>
+                    <br><br>
+
+
+
+                    <br><br>
+
+
+
+                    <!-- Campos adicionales que se mostrarán al seleccionar una opción -->
+                    <div id="campos_escolaridad" class="section_oculta">
+                        <label for="nombre_escuela">Nombre de Escuela:</label>
+                        <input type="text" id="nombre_escuela" name="nombre_escuela"
+                            placeholder="Escribe el nombre de la escuela">
+
+                        <br><br>
+
+                        <label for="direccion_escuela">Dirección de Escuela:</label>
+                        <textarea id="direccion_escuela" name="direccion_escuela" rows="3"
+                            placeholder="Escribe la dirección de la escuela"></textarea>
+                        <br><br>
+
+                        <label for="fecha_inicio_escuela">Fecha Inicio Escuela:</label>
+                        <input type="date" id="fecha_inicio_escuela" name="fecha_inicio_escuela">
+                        <br><br>
+
+                        <label for="fecha_final_escuela">Fecha Final Escuela:</label>
+                        <input type="date" id="fecha_final_escuela" name="fecha_final_escuela">
+                        <br><br>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            <!-- Sección de Empleo Actual -->
+            <div class="section">
+
+                <div class="info">
+                    <h3>Empleo Actual</h3>
+                    Indique su ocupación actual seleccionando una opción del menú desplegable. Luego,
+                    proporcione
+                    detalles sobre su empleo actual, incluyendo el nombre de la empresa, dirección, fecha de
+                    inicio,
+                    teléfono, salario mensual y una descripción de sus responsabilidades. Complete toda la
+                    información
+                    para un perfil laboral detallado.
+                </div>
+
+
+                <label for="ocupacion_actual_empleo"> </label>
+                <div class="lisbox">
+                    <h4>Ocupación Actual:</h4>
+                    <select id="ocupacion_actual_empleo" name="ocupacion_actual_empleo">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="empleado">Empleado</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="ama_de_casa">Ama de Casa</option>
+                        <option value="jubilado">Jubilado</option>
+                        <option value="autonomo">Autónomo</option>
+                        <option value="desempleado">Desempleado</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <br><br>
+
+                    <!-- Mensajes de error y confirmación -->
+                    <div id="ocupacion_error" class="mensaje-error" style="display: none;">Por favor selecciona
+                        una
+                        opción.
+                    </div>
+                    <div id="ocupacion_correcto" class="mensaje-correcto" style="display: none;">Ocupación
+                        seleccionada.
+                    </div>
+                </div>
+
+
+
+                <!-- Campos adicionales que se mostrarán al seleccionar una opción -->
+                <div id="campos_empleo_actual" class="section_oculta">
+
+                    <label for="nombre_empresa_actual">Nombre de Empresa Actual:</label>
+                    <input type="text" id="nombre_empresa_actual" name="nombre_empresa_actual"
+                        placeholder="Escribe el nombre de la empresa">
+                    <br><br>
+
+                    <label for="domicilio_empresas_actual">Domicilio de Empresa Actual:</label>
+                    <textarea id="domicilio_empresas_actual" name="domicilio_empresas_actual" rows="3"
+                        placeholder="Escribe el domicilio de la empresa"></textarea>
+                    <br><br>
+
+                    <label for="fecha_inicio_empleo_actual">Fecha Inicio Empleo Actual:</label>
+                    <input type="date" id="fecha_inicio_empleo_actual" name="fecha_inicio_empleo_actual">
+                    <br><br>
+
+                    <label for="telefono_empres_actual">Teléfono Empresa Actual:</label>
+                    <input type="text" id="telefono_empres_actual" name="telefono_empres_actual"
+                        placeholder="Escribe el teléfono de la empresa">
+                    <br><br>
+
+                    <label for="salario_ensual_empleo_actual">Salario Mensual:</label>
+                    <input type="number" id="salario_ensual_empleo_actual" name="salario_ensual_empleo_actual"
+                        placeholder="Escribe tu salario mensual">
+                    <br><br>
+
+                    <label for="descripcion_actividades_a_su_cargo">Descripción de Actividades a su
+                        Cargo:</label>
+                    <textarea id="descripcion_actividades_a_su_cargo" name="descripcion_actividades_a_su_cargo" rows="3"
+                        placeholder="Escribe las actividades que realizas"></textarea>
+                    <br><br>
+                </div>
+            </div>
+
+            <!-- Empleo Anterior -->
+            <div class="section">
+                <div class="info">
+                    <h3>Empleo Anterior</h3>
+                    Proporcione información sobre su empleo anterior, incluyendo el nombre de la empresa,
+                    dirección,
+                    fechas de inicio y fin, y una descripción de las actividades realizadas. Además, incluya el
+                    nombre y
+                    número de contacto de su jefe inmediato anterior para referencias laborales. Asegúrese de
+                    que toda
+                    la información sea precisa y completa.
+                </div>
+
+
+                <label for="nombre_empresa_anterior">Nombre de Empresa Anterior:</label>
+                <input type="text" id="nombre_empresa_anterior" name="nombre_empresa_anterior"
+                    placeholder="Escribe el nombre de empresa anterior">
+                <br><br>
+
+                <label for="domicilio_empresas_anterior">Domicilio de Empresa Anterior:</label>
+                <textarea id="domicilio_empresas_anterior" name="domicilio_empresas_anterior" rows="3"
+                    placeholder="Escribe el domicilio de la empresa anterior"></textarea>
+                <br><br>
+
+                <label for="fecha_inicio_empleo_anterior">Fecha Inicio Empleo Anterior:</label>
+                <input type="date" id="fecha_inicio_empleo_anterior" name="fecha_inicio_empleo_anterior">
+                <br><br>
+
+                <label for="fecha_fin_empleo_anterior">Fecha Fin Empleo Anterior:</label>
+                <input type="date" id="fecha_fin_empleo_anterior" name="fecha_fin_empleo_anterior">
+                <br><br>
+
+
+                <label for="descripcion_actividades_empleo_anterior">Descripción de Actividades a su Cargo
+                    Empleo
+                    Anterior:</label>
+                <textarea id="descripcion_actividades_empleo_anterior" name="descripcion_actividades_empleo_anterior"
+                    rows="3" placeholder="Escribe las actividades que realizabas en tu puesto anterior"></textarea>
+                <br><br>
+
+                <label for="nombre_jefe_inmediato">Nombre Jefe Inmediato:</label>
+                <input type="text" id="nombre_jefe_inmediato" name="nombre_jefe_inmediato"
+                    placeholder="Escribe el nombre de jefe inmediato anterior">
+                <br><br>
+
+                <label for="telefono_jefe_inmediato">Teléfono de Contacto:</label>
+                <input type="text" id="telefono_jefe_inmediato" name="telefono_jefe_inmediato"
+                    placeholder="Escribe el número de teléfono de contacto">
+                <br><br>
+            </div>
+
+            <!-- Datos de los Padres -->
+            <div class="section">
+                <div class="info">
+                    <h4>Datos De los Padres</h4>
+                    Proporcione información sobre su familia, incluyendo datos sobre su cónyuge, hijos y
+                    cualquier otro
+                    miembro relevante. Esto puede incluir nombre, edad y relación.
+                </div>
+
+                <br>
+
+                <label for="nombre_completo_padre">Nombre Completo del Padre:</label>
+                <input type="text" id="nombre_completo_padre" name="nombre_completo_padre"
+                    placeholder="Escribe el nombre completo del Padre">
+                <div id="nombre_completo_padre_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="nombre_completo_padre_correcto" class="mensaje-correcto">Nombre de Padre válido.</div>
+                <br><br>
+
+                <label for="fecha_nacimiento_padre">Fecha de Nacimiento del Padre:</label>
+                <input type="date" id="fecha_nacimiento_padre" name="fecha_nacimiento_padre">
+                <br><br>
+
+                <label for="padre_vive_eu">Vive en Estados Unidos?:</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="padre_vive_estados_unidos" value="si"> Sí</label>
+                    <label><input type="radio" name="padre_vive_estados_unidos" value="no"> No</label>
+                </div>
+                <br><br>
+
+                <label for="nombre_completo_madre">Nombre Completo de la Madre:</label>
+                <input type="text" id="nombre_completo_madre" name="nombre_completo_madre"
+                    placeholder="Escribe el nombre completo de la Madre">
+                <div id="nombre_completo_madre_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="nombre_completo_madre_correcto" class="mensaje-correcto">Nombre de Madre válido.</div>
+                <br><br>
+
+                <label for="fecha_nacimiento_madre">Fecha de Nacimiento de la Madre:</label>
+                <input type="date" id="fecha_nacimiento_madre" name="fecha_nacimiento_madre">
+                <br><br>
+
+                <label for="madre_vive_estados_unidos">Vive en Estados Unidos?:</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="madre_vive_estados_unidos" value="si"> Sí</label>
+                    <label><input type="radio" name="madre_vive_estados_unidos" value="no"> No</label>
+                </div>
+                <br><br>
+            </div>
+
+            <!-- Redes Sociales -->
+            <!-- Redes Sociales -->
+            <div class="section">
+                <!-- Información sobre Redes Sociales -->
+                <div class="info">
+                    <h3>Sección para ingresar el perfil de Redes Sociales</h3>
+                    Proporcione sus perfiles de redes sociales como Facebook e Instagram. Asegúrese de que la
+                    información ingresada
+                    sea correcta para poder contactarlo a través de estas plataformas si es necesario.
+                </div>
+                <br>
+
+                <h4>Redes Sociales</h4>
+
+                <!-- Sección para ingresar el perfil de Facebook -->
+                <label for="facebook">
+                    <img src="https://www.facebook.com/favicon.ico" alt="Facebook Icon"
+                        style="width:16px; height:16px;">
+                    Facebook:
+                </label>
+                <input type="text" id="facebook" name="facebook" placeholder="Escribe cómo te encuentran en Facebook">
+                <br>
+                <span style="font-size: 0.9em; color: #6c757d;">Ejemplo: Juan Pérez o
+                    facebook.com/juan.perez</span>
+                <div id="facebook_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="facebook_correcto" class="mensaje-correcto">Perfil de Facebook válido.</div>
+                <br><br>
+
+                <!-- Sección para ingresar el perfil de Instagram -->
+                <label for="instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                        alt="Instagram Icon" style="width:16px; height:16px;">
+                    Instagram:
+                </label>
+                <input type="text" id="instagram" name="instagram"
+                    placeholder="Escribe cómo te encuentran en Instagram">
+                <br>
+                <span style="font-size: 0.9em; color: #6c757d;">Ejemplo: @juan_perez o
+                    instagram.com/juan.perez</span>
+                <div id="instagram_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="instagram_correcto" class="mensaje-correcto">Perfil de Instagram válido.</div>
+                <br><br>
+            </div>
+
+
+
+            <!-- Información Adicional -->
+            <div class="section">
+                <div class="info">
+                    Incluya aquí cualquier información adicional que considere relevante para su solicitud. Esto
+                    puede
+                    incluir detalles que no encajen en las secciones anteriores pero que son importantes para su
+                    perfil.
+                </div>
+
+                <h4>Información Adicional</h4>
+
+
+                <div>
+                    <label for="tiene_familiares_estados_unidos">¿Tiene Familiares en Estados Unidos?:</label>
+                    <select id="tiene_familiares_estados_unidos" name="tiene_familiares_estados_unidos"
+                        onchange="toggleSection('tiene_familiares_estados_unidos', 'si', 'section_tiene_familiares_estados_unidos_si')">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                        <option value="no_estoy_seguro">No Estoy Seguro</option>
+                    </select>
+                    <br><br>
+
+                    <div class="section_tiene_familiares_estados_unidos_si" style="display: none;">
+                        <label for="nombre_completo_familiar_cercano">Nombre Completo de Familiar
+                            Cercano:</label>
+                        <input type="text" id="nombre_completo_familiar_cercano" name="nombre_completo_familiar_cercano"
+                            placeholder="Escribe el nombre completo del familiar cercano">
+                        <div id="nombre_completo_familiar_cercano_error" class="mensaje-error">Este campo es
+                            obligatorio.
+                        </div>
+                        <div id="nombre_completo_familiar_cercano_correcto" class="mensaje-correcto">Nombre de
+                            Familiar
+                            válido.
+                            <br><br>
+
+                            <label for="numero_telefonico_familiar_cercano">Número de Teléfono de Familiar
+                                Cercano:</label>
+                            <input type="tel" id="numero_telefonico_familiar_cercano"
+                                name="numero_telefonico_familiar_cercano"
+                                placeholder="Ingresa el número de teléfono del familiar cercano">
+                            <div id="numero_telefonico_familiar_cercano_error" class="mensaje-error">Número
+                                telefónico
+                                inválido.
+                            </div>
+                            <div id="numero_telefonico_familiar_cercano_correcto" class="mensaje-correcto">
+                                Número
+                                válido.
+                            </div>
+                            <br><br>
+
+                            <label for="domicilio_familiar_cercano">Domicilio de Familiar Cercano:</label>
+                            <textarea id="domicilio_familiar_cercano" name="domicilio_familiar_cercano" rows="3"
+                                placeholder="Escribe el domicilio del familiar cercano"></textarea>
+                            <div id="domicilio_familiar_cercano_error" class="mensaje-error">Este campo es
+                                obligatorio.
+                            </div>
+                            <div id="domicilio_familiar_cercano_correcto" class="mensaje-correcto">Domicilio
+                                válido.
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Adicional -->
+            <div class="section">
+                <div class="info">
+                    Incluya aquí cualquier información adicional que considere relevante para su solicitud. Esto
+                    puede
+                    incluir detalles que no encajen en las secciones anteriores pero que son importantes para su
+                    perfil.
+                </div>
+
+                <h4>Información Adicional</h4>
+
+
+                <div>
+                    <label for="tramitaron_visa_antes">¿Tramitaron la visa antes?:</label>
+                    <select id="tramitaron_visa_antes" name="tramitaron_visa_antes"
+                        onchange="toggleSection('tramitaron_visa_antes', 'si', 'section_tramitaron_visa_antes_si')">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                        <option value="no_estoy_seguro">No Estoy Seguro</option>
+                    </select>
+                    <br><br>
+
+                    <div class="section_tramitaron_visa_antes_si" style="display: none;">
+                        <label for="redacta_procedimiento_realizado">Redacta el Procedimiento Realizado:</label>
+                        <textarea id="redacta_procedimiento_realizado" name="redacta_procedimiento_realizado" rows="3"
+                            placeholder="Describe el procedimiento que realizaste para tramitar la visa"></textarea>
+                        <div id="redacta_procedimiento_realizado_error" class="mensaje-error">Este campo es
+                            obligatorio.
+                        </div>
+                        <div id="redacta_procedimiento_realizado_error" class="mensaje-error">Este campo es
+                            obligatorio.
+                        </div>
+                        <div id="redacta_procedimiento_realizado_correcto" class="mensaje-correcto">
+                            Procedimiento
+                            válido.</div>
+
+                    </div>
+                    <br><br>
+                </div>
+                <br><br>
+            </div>
+
+            <!-- Información Adicional -->
+            <div class="section">
+                <h4>Información Adicional</h4>
+                <br><br>
+                <div>
+                    <label for="han_visitado_estados_unidos">¿Han visitado Estados Unidos?:</label>
+                    <select id="han_visitado_estados_unidos" name="han_visitado_estados_unidos"
+                        onchange="toggleSection('han_visitado_estados_unidos', 'si', 'han_visitado_estados_unidos_si')">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                        <option value="no_estoy_seguro">No Estoy Seguro</option>
+                    </select>
+                    <br><br>
+
+                    <div class="han_visitado_estados_unidos_si" style="display: none;">
+                        <label for="fecha_visita_estados_unidos">Fecha de Visita en Estados Unidos:</label>
+                        <input type="date" id="fecha_visita_estados_unidos" name="fecha_visita_estados_unidos"
+                            placeholder="Selecciona la fecha de tu visita">
+                    </div>
+                    <br><br>
+                </div>
+                <br><br>
+            </div>
+
+            <!-- Información Adicional -->
+            <div class="section">
+                <h4>Información Adicional</h4>
+                <br><br>
+                <div>
+                    <label for="han_viajado_extranjero_últimos_cinco_años">¿Han viajado al extranjero en los
+                        últimos
+                        cinco
+                        años?:</label>
+                    <div class="checkbox-group"
+                        onchange="toggleSectionRadio('han_viajado_extranjero_últimos_cinco_años', 'si', 'han_viajado_extranjero_últimos_cinco_años_si')">
+                        <label><input type="radio" name="han_viajado_extranjero_últimos_cinco_años"
+                                value="si">Sí</label>
+                        <label><input type="radio" name="han_viajado_extranjero_últimos_cinco_años"
+                                value="no">No</label>
+                        <label><input type="radio" name="han_viajado_extranjero_últimos_cinco_años"
+                                value="no_estoy_seguro">No
+                            Estoy Seguro</label>
+                    </div>
+                    <br><br>
+                    <div class="han_viajado_extranjero_últimos_cinco_años_si" style="display: none;">
+                        <label for="pais">País:</label>
+                        <input type="text" id="pais" name="pais" placeholder="Escribe o selecciona un país"
+                            autocomplete="off" oninput="filterCountries()" onfocus="showAllCountries()">
+                        <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
+                        <br><br>
+                    </div>
+                </div>
+                <br><br>
+
+                <div>
+                    <label for="domina_ingles">¿Domina el inglés?:</label>
+                    <div class="radio-group" onchange="toggleSectionRadio('domina_ingles', 'si', 'domina_ingles_si')">
+                        <label><input type="radio" id="domina_ingles_si" name="domina_ingles" value="si">Sí</label>
+                        <label><input type="radio" id="domina_ingles_no" name="domina_ingles" value="no">No</label>
+                    </div>
+                    <div class="domina_ingles_si" style="display: none;">
+                        <!-- Aquí puedes agregar campos adicionales si es necesario -->
+                    </div>
+                </div>
+                <br><br>
+            </div>
+
+
+
+
+            <!-- Documentación adjunta -->
+            <div class="section" id="documentacion_section">
+                <div class="info">
+                    <h4>Documentación adjunta</h4>
+                    Adjunte copias digitales de sus documentos oficiales requeridos, como pasaporte, visa o
+                    cualquier
+                    otro documento de identificación. Asegúrese de que las imágenes sean claras y legibles.
+                </div>
+
+
+                <label for="acta_nacimiento">Adjuntar Acta de Nacimiento:</label>
+                <input type="file" id="acta_nacimiento" name="acta_nacimiento" accept="image/*"
+                    placeholder="Selecciona el archivo del acta de nacimiento" required>>
+                <br><br>
+
+                <label for="pasaporte">Adjuntar Pasaporte:</label>
+                <input type="file" id="pasaporte" name="pasaporte" accept="image/*"
+                    placeholder="Selecciona el archivo del pasaporte" required>>
+                <br><br>
+
+                <label for="ine">Adjuntar INE:</label>
+                <input type="file" id="ine" name="ine" accept="image/*" placeholder="Selecciona el archivo del INE"
+                    required>>
+                <br><br>
+
+                <label for="archivo">Sube un archivo (".pdf,.doc,.docx,.xls,.xlsx"):</label>
+                <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx,.xls,.xlsx"
+                    placeholder="Selecciona un archivo PDF, DOC, DOCX, XLS o XLSX">
+                <br><br>
+
+                <label for="check">¿Aceptas los términos?</label>
+                <input type="checkbox" id="check" name="check" value="true"> Sí
+                <br><br>
+
+                <!-- Campo de Fecha y Hora -->
+                <!-- <label for="fecha_hora">Fecha y Hora de Envío:</label>
+        <input type="text" id="fecha_hora" name="fecha_hora" readonly>
+        <br><br> -->
+                <button class="submit" type="submit">Enviar</button>
+                <br><br>
+                <!-- Campo de Fecha y Hora -->
+                <!-- <label for="fecha_hora">Fecha y Hora de Envío:</label> -->
+                <input type="text" id="fecha_hora" name="fecha_hora" readonly>
+            </div>
+
+            <!-- Botones de navegación -->
+
+            <!-- Botones de navegación -->
+            <div class="button-container">
+                <button type="button" id="prevButton">Anterior</button>
+                <button type="button" id="nextButton">Siguiente</button>
+                <!-- <button type="submit" id="submitButton" class="enviar">Enviar Información</button> -->
+
+            </div>
+        </div>
+    </form>
+
+
+    <!-- Modal -->
+    <div id="modal">
+        <div class="logo-modal">
+            <img src="../images/ICOR.ico" alt="Logo" class="logo-img">
+        </div>
+        <div id="modalContent">
+            <!-- Contenido del modal será insertado aquí -->
+        </div>
+    </div>
+
+
+    <footer id="footer">
+        <section class="social-media">
+            <h4>Síguenos en nuestras redes sociales</h4>
+            <div class="icons">
+                <div class="footer-logo">
+                    <a href="https://www.facebook.com/profile.php?id=61561523894253&mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://wa.me/7772095614" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp fa-2x"></i>
+                    </a>
+                    <a href="https://www.messenger.com/t/USERNAME" target="_blank" aria-label="Messenger">
+                        <i class="fab fa-facebook-messenger fa-2x"></i>
+                    </a>
+                </div>
+                <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+                <div class="footer-content">
+                    <div class="copyright_text">
+                        <p>Desarrollado por:</p>
+                        <p>Raul A. Alameda Ruelas</p>
+                        <a href="https://idappsh.sites/" target="_blank">IDAPPSH</a>
+                    </div>
+                    <div class="footer-logo">
+                        <img src="../images/icorar.ico" alt="Logo" class="logo-img">
+                    </div>
+                </div>
+        </section>
+    </footer>
+
+    <script>
+        // Función para mostrar u ocultar la sección basada en la selección
+function toggleSection(selectId, valueToShow, sectionId) {
+    const selectElement = document.getElementById(selectId);
+    const section = document.getElementById(sectionId);
+
+    // Mostrar/ocultar la sección dependiendo del valor seleccionado
+    if (selectElement.value === valueToShow) {
+        section.style.display = 'block';
+        document.getElementById('nombre_completo_persona_con_quien_viaja').setAttribute('required', true);
+    } else {
+        section.style.display = 'none';
+        document.getElementById('nombre_completo_persona_con_quien_viaja').removeAttribute('required');
+    }
+}
+
+// Función para validar el formulario
+function validateForm() {
+    const viajeAcompanado = document.getElementById('viaja_acompañado').value;
+    const nombreCompleto = document.getElementById('nombre_completo_persona_con_quien_viaja').value;
+
+    let valid = true;
+
+    // Validar el campo "Nombre Completo de la Persona con la que Viaja" si se seleccionó "Sí"
+    if (viajeAcompanado === 'si' && !nombreCompleto) {
+        document.getElementById('nombre_completo_persona_con_quien_viaja_error').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('nombre_completo_persona_con_quien_viaja_error').style.display = 'none';
+    }
+
+    return valid;
+}
+
+    </script>
+    <!-- Agregar el SDK de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
+
+    <script src="scrip_seccion.js"></script>
+    <script src="scripts_elemt.js"></script>
+    
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById('dataForm');
+            const tipoSolicitud = document.getElementById('tipo_solicitud');
+            const sectionRenovacion = document.querySelector('.section_renovacion');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            const submitBtn = document.getElementById('submitBtn');
+
+            tipoSolicitud.addEventListener('change', () => {
+                if (tipoSolicitud.value === 'renovacion') {
+                    sectionRenovacion.style.display = 'block';
+                } else {
+                    sectionRenovacion.style.display = 'none';
+                }
+            });
+
+            const validateInput = (input) => {
+                const value = input.value.trim();
+                const errorElement = document.getElementById(`${input.id}_error`);
+                const correctElement = document.getElementById(`${input.id}_correcto`);
+
+                if (input.required && !value) {
+                    errorElement.style.display = 'block';
+                    correctElement.style.display = 'none';
+                    return false;
+                } else if (input.id === 'numero_telefonico' && !/^\+?\d{10,15}$/.test(value)) {
+                    errorElement.textContent = 'Por favor ingresa un número telefónico válido.';
+                    errorElement.style.display = 'block';
+                    correctElement.style.display = 'none';
+                    return false;
+                } else if (input.id === 'correo_electronico' && value && !/\S+@\S+\.\S+/.test(value)) {
+                    errorElement.textContent = 'Por favor ingresa un correo electrónico válido.';
+                    errorElement.style.display = 'block';
+                    correctElement.style.display = 'none';
+                    return false;
+                } else if (input.id === 'nombre' && !/^[a-zA-Z\s]+$/.test(value)) {
+                    errorElement.textContent = 'Este campo debe contener solo letras.';
+                    errorElement.style.display = 'block';
+                    correctElement.style.display = 'none';
+                    return false;
+                } else if (value) {
+                    errorElement.style.display = 'none';
+                    correctElement.style.display = 'block';
+                    return true;
+                } else {
+                    errorElement.style.display = 'none';
+                    correctElement.style.display = 'none';
+                    return true;
+                }
+            };
+
+            inputs.forEach(input => {
+                input.addEventListener('input', () => validateInput(input));
+                input.addEventListener('change', () => validateInput(input));
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                inputs.forEach(input => {
+                    if (!validateInput(input)) {
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
+                    alert('Formulario enviado correctamente');
+                    // Aquí se podría enviar el formulario o hacer una petición AJAX
+                } else {
+                    alert('Por favor, corrige los errores en el formulario.');
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+            let currentSection = 0;
+
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.style.display = i === index ? "block" : "none";
+                });
+                prevButton.style.display = index === 0 ? "none" : "inline";
+                nextButton.style.display = index === sections.length - 1 ? "none" : "inline";
+            }
+
+            function validateField(field) {
+                const errorElement = document.getElementById(`${field.id}_error`);
+                const correctElement = document.getElementById(`${field.id}_correcto`);
+                let valid = true;
+
+                if (field.type === "email") {
+                    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+                    if (!valid) {
+                        errorElement.textContent = "Por favor ingresa un correo electrónico válido.";
+                    }
+                } else if (field.type === "text") {
+                    if (["nombre_completo_estudiante", "nombre_completo_padre", "nombre_completo_madre"].includes(field.id)) {
+                        valid = /^[A-Za-z\s]+$/.test(field.value.trim());
+                        if (!valid) {
+                            errorElement.textContent = "Este campo debe contener solo letras.";
+                        }
+                    } else if (["telefono", "telefono_contacto_padre", "telefono_contacto_madre"].includes(field.id)) {
+                        valid = /^[+]?[0-9\s]+$/.test(field.value.trim());
+                        if (!valid) {
+                            errorElement.textContent = "Por favor ingresa un número telefónico válido.";
+                        }
+                    } else {
+                        valid = field.value.trim() !== "";
+                        if (!valid) {
+                            errorElement.textContent = "Este campo es obligatorio.";
+                        }
+                    }
+                } else if (field.type === "number") {
+                    valid = field.value > 0;
+                    if (!valid) {
+                        errorElement.textContent = "Por favor ingresa una cantidad válida.";
+                    }
+                } else if (field.tagName === "SELECT" && field.required) {
+                    valid = field.value !== "";
+                    if (!valid) {
+                        errorElement.textContent = "Por favor selecciona una opción.";
+                    }
+                } else if (field.type === "checkbox") {
+                    valid = field.checked;
+                    if (!valid) {
+                        errorElement.textContent = "Debes aceptar los términos.";
+                    }
+                } else if (field.type === "date") {
+                    valid = field.value !== "";
+                    if (!valid) {
+                        errorElement.textContent = "Este campo es obligatorio.";
+                    }
+                } else if (field.type === "radio") {
+                    const radios = document.querySelectorAll(`input[name=${field.name}]`);
+                    valid = Array.from(radios).some(radio => radio.checked);
+                    if (!valid) {
+                        errorElement.textContent = "Por favor selecciona una opción.";
+                    }
+                }
+
+                if (valid) {
+                    field.classList.add("input-correcto");
+                    field.classList.remove("input-incorrecto");
+                    errorElement.style.display = "none";
+                    correctElement.style.display = "block";
+                } else {
+                    field.classList.add("input-incorrecto");
+                    field.classList.remove("input-correcto");
+                    errorElement.style.display = "block";
+                    correctElement.style.display = "none";
+                }
+
+                return valid;
+            }
+
+            function validateSection(index) {
+                const section = sections[index];
+                const inputs = section.querySelectorAll("input[required], select[required]");
+                let valid = true;
+
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        valid = false;
+                    }
+                });
+
+                return valid;
+            }
+
+            sections.forEach(section => {
+                section.addEventListener("input", function (event) {
+                    validateField(event.target);
+                });
+            });
+
+            prevButton.addEventListener("click", () => {
+                if (currentSection > 0) {
+                    currentSection--;
+                    showSection(currentSection);
+                }
+            });
+
+            nextButton.addEventListener("click", () => {
+                if (validateSection(currentSection)) {
+                    if (currentSection < sections.length - 1) {
+                        currentSection++;
+                        showSection(currentSection);
+                    }
+                }
+            });
+
+            showSection(currentSection);
+
+            document.getElementById('tipo_solicitud').addEventListener('change', function () {
+                const renovacionSection = document.querySelector('.section_renovacion');
+                renovacionSection.style.display = this.value === 'renovacion' ? 'block' : 'none';
+                validateField(this); // Valida el campo cuando se cambia la opción
+            });
+
+            document.getElementById('ocupacion_actual_empleo').addEventListener('change', function () {
+                const camposEmpleoActual = document.getElementById('campos_empleo_actual');
+                camposEmpleoActual.style.display = this.value !== "" ? 'block' : 'none';
+                validateField(this); // Valida el campo cuando se cambia la opción
+            });
+
+            document.getElementById('tiene_familiares_estados_unidos').addEventListener('change', function () {
+                const familiaresSection = document.querySelector('.section_tiene_familiares_estados_unidos_si');
+                familiaresSection.style.display = this.value === 'si' ? 'block' : 'none';
+                validateField(this); // Valida el campo cuando se cambia la opción
+            });
+
+            document.getElementById('tramitaron_visa_antes').addEventListener('change', function () {
+                const visaSection = document.querySelector('.section_tramitaron_visa_antes_si');
+                visaSection.style.display = this.value === 'si' ? 'block' : 'none';
+                validateField(this); // Valida el campo cuando se cambia la opción
+            });
+
+            document.getElementById('han_visitado_estados_unidos').addEventListener('change', function () {
+                const visitaSection = document.querySelector('.han_visitado_estados_unidos_si');
+                visitaSection.style.display = this.value === 'si' ? 'block' : 'none';
+                validateField(this); // Valida el campo cuando se cambia la opción
+            });
+
+            function validateFileInput(fileInput) {
+                const errorElement = document.getElementById(`${fileInput.id}_error`);
+                const validExtensions = {
+                    'acta_nacimiento': ['image/*'],
+                    'pasaporte': ['image/*'],
+                    'ine': ['image/*'],
+                    'archivo': ['.pdf', '.doc', '.docx', '.xls', '.xlsx']
+                };
+
+                const file = fileInput.files[0];
+                let valid = false;
+
+                if (file) {
+                    const fileName = file.name;
+                    const fileType = fileInput.accept.split(',').map(ext => ext.trim());
+                    valid = fileType.some(type => fileName.endsWith(type) || type === '*/*');
+                }
+
+                if (valid) {
+                    errorElement.style.display = "none";
+                } else {
+                    errorElement.textContent = "Tipo de archivo no válido.";
+                    errorElement.style.display = "block";
+                }
+
+                return valid;
+            }
+
+            document.querySelectorAll('input[type="file"]').forEach(fileInput => {
+                fileInput.addEventListener('change', function () {
+                    validateFileInput(this);
+                });
+            });
+
+            document.getElementById('check').addEventListener('change', function () {
+                const checkError = document.getElementById('check_error');
+                if (this.checked) {
+                    checkError.style.display = 'none';
+                } else {
+                    checkError.textContent = 'Debes aceptar los términos.';
+                    checkError.style.display = 'block';
+                }
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+            let currentSection = 0;
+
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.style.display = i === index ? "block" : "none";
+                });
+                prevButton.style.display = index === 0 ? "none" : "inline";
+                nextButton.style.display = index === sections.length - 1 ? "none" : "inline";
+            }
+
+            function validateField(field) {
+                const errorElement = document.getElementById(`${field.id}_error`);
+                const correctElement = document.getElementById(`${field.id}_correcto`);
+                let valid = true;
+
+                if (field.type === "email") {
+                    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+                    if (!valid) {
+                        errorElement.textContent = "Por favor ingresa un correo electrónico válido.";
+                    }
+                } else if (field.type === "text") {
+                    if (field.id === "nombre" || field.id === "apellido_paterno" || field.id === "apellido_materno" || field.id === "nombres") {
+                        valid = /^[A-Za-z\s]+$/.test(field.value.trim());
+                        if (!valid) {
+                            errorElement.textContent = "Este campo debe contener solo letras.";
+                        }
+                    } else if (field.id === "numero_telefonico") {
+                        valid = /^[+]?[0-9\s]+$/.test(field.value.trim());
+                        if (!valid) {
+                            errorElement.textContent = "Por favor ingresa un número telefónico válido.";
+                        }
+                    } else {
+                        valid = field.value.trim() !== "";
+                        if (!valid) {
+                            errorElement.textContent = "Este campo es obligatorio.";
+                        }
+                    }
+                } else if (field.type === "number") {
+                    valid = field.value > 0;
+                    if (!valid) {
+                        errorElement.textContent = "Por favor ingresa una cantidad válida.";
+                    }
+                } else if (field.tagName === "SELECT" && field.required) {
+                    valid = field.value !== "";
+                    if (!valid) {
+                        errorElement.textContent = "Por favor selecciona una opción.";
+                    }
+                } else if (field.type === "checkbox") {
+                    valid = field.checked;
+                    if (!valid) {
+                        errorElement.textContent = "Debes aceptar los términos.";
+                    }
+                } else if (field.type === "date") {
+                    valid = field.value !== "";
+                    if (!valid) {
+                        errorElement.textContent = "Este campo es obligatorio.";
+                    }
+                } else if (field.type === "radio") {
+                    // Validación de radio buttons
+                    const radios = document.querySelectorAll(`input[name=${field.name}]`);
+                    valid = Array.from(radios).some(radio => radio.checked);
+                    if (!valid) {
+                        errorElement.textContent = "Por favor selecciona una opción.";
+                    }
+                }
+
+                if (valid) {
+                    field.classList.add("input-correcto");
+                    field.classList.remove("input-incorrecto");
+                    errorElement.style.display = "none";
+                    correctElement.style.display = "block";
+                } else {
+                    field.classList.add("input-incorrecto");
+                    field.classList.remove("input-correcto");
+                    errorElement.style.display = "block";
+                    correctElement.style.display = "none";
+                }
+
+                return valid;
+            }
+
+            function validateSection(index) {
+                const section = sections[index];
+                const inputs = section.querySelectorAll("input[required], select[required]");
+                let valid = true;
+
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        valid = false;
+                    }
+                });
+
+                return valid;
+            }
+
+            sections.forEach(section => {
+                section.addEventListener("input", function (event) {
+                    validateField(event.target);
+                });
+            });
+
+            prevButton.addEventListener("click", () => {
+                if (currentSection > 0) {
+                    currentSection--;
+                    showSection(currentSection);
+                }
+            });
+
+            nextButton.addEventListener("click", () => {
+                if (validateSection(currentSection)) {
+                    if (currentSection < sections.length - 1) {
+                        currentSection++;
+                        showSection(currentSection);
+                    }
+                }
+            });
+
+            showSection(currentSection);
+
+            document.getElementById('tipo_solicitud').addEventListener('change', function () {
+                const renovacionSection = document.querySelector('.section_renovacion');
+                renovacionSection.style.display = this.value === 'renovacion' ? 'block' : 'none';
+                validateField(this); // Valida el campo cuando se cambia la opción
+            });
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

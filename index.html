@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información y documentos para llenado de formatos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/client_ico_256.ico" type="image/x-icon">
+    <!-- Agregar iconos de redes sociales desde un CDN como FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .social-media {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-media h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .social-media .icons a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-media .icons a i {
+            transition: transform 0.3s ease;
+        }
+
+        .social-media .icons a:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Colores originales para los iconos de redes sociales */
+        .fab.fa-facebook {
+            color: #3b5998;
+            /* Color oficial de Facebook */
+        }
+
+        .fab.fa-instagram {
+            color: #E1306C;
+            /* Color oficial de Instagram */
+        }
+
+        .fab.fa-whatsapp {
+            color: #25D366;
+            /* Color oficial de WhatsApp */
+        }
+
+        .fab.fa-facebook-messenger {
+            color: #0078FF;
+            /* Color oficial de Messenger */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+        }
+
+        .copyright_text a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Espaciado adecuado para dispositivos grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                padding-right: 15px;
+            }
+        }
+
+        /* Estilo en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+
+        footer {
+            background-color: rgb(11, 2, 2);
+            color: #fff;
+            padding: 0px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: rgb(39, 17, 211);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: rgb(39, 17, 211);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Manual de Uso del Formulario de Información y Documentos</h1>
+        <h2>Instrucciones Generales.</h2>
+    </header>
+    
+    <main>
+        <section id="instrucciones" style="color:rgb(252, 252, 252);">
+            <div class="instrucciones">
+                <section>
+                    <h2>Pasos para Usar el Formulario</h2>
+                    <ol>
+                        <li><strong>Leer Instrucciones Iniciales</strong> y hacer clic en check antes de
+                            <strong>"Continuar"</strong>.
+                        </li>
+                        <li><strong>Seleccionar Tipo de Solicitud:</strong> <strong>Primera Vez</strong> o
+                            <strong>Renovación</strong>.
+                        </li>
+                        <li><strong>Ingresar los datos de cada sección del formulario</strong> y hacer clic en
+                            <strong>"Siguiente"</strong>.
+                        </li>
+                        <li><strong>Después de haber verificado la información ingresada</strong>, hacer clic en
+                            <strong>"Enviar"</strong>.
+                        </li>
+                    </ol>
+
+                    <h2>Formulario de (primera vez o renovación)</h2>
+                    <p><strong>Secciones:</strong></p>
+                    <ul>
+                        <li>Contacto</li>
+                        <li>Datos Personales</li>
+                        <li>Datos Académicos</li>
+                        <li>Información Laboral</li>
+                        <li>Datos Familiares</li>
+                        <li>Información Adicional</li>
+                        <li>Foto de Documentos Oficiales</li>
+                    </ul>
+                    <p>También se les pide adjuntar algunos archivos en foto, mismos que serán utilizados
+                        para este proceso. Haz clic en <strong>"Enviar"</strong> al finalizar.</p>
+                </section>
+                <section>
+                    <h2>Notas Importantes</h2>
+                    <ul>
+                        <li>La información es confidencial.</li>
+                        <li>Completa todos los campos obligatorios.</li>
+                        <li>En caso de no estar seguro/a de la información a ingresar en alguno de los campos, solicita
+                            ayuda antes de enviar el formulario.</li>
+                        <li>Si la información ingresada en alguno de los campos es incorrecta, se te solicitará volver a llenar el
+                            formulario con los datos correctos.</li>
+                        <li>La gestora te recomendará, si fuera el caso, modificar información para aumentar la
+                            probabilidad de aprobación de la visa.</li>
+                        <li>*Una vez que se encuentren tus citas finales, la asesora se encargará de dar toda la asesoría
+                            y tips para tu cita de entrevista.</li>
+                    </ul>
+                </section>
+                <div class="header">
+                    <section>
+                        <label for="check">¿Aceptas los términos?</label>
+                        <input type="checkbox" id="check" name="check" value="true">
+                        <br><br>
+                        <hr>
+                        <button id="btn-continuar">Continuar</button>
+                        <br><br>
+                        <h2>Contacto y Soporte</h2>
+                        <p>Para dudas o asistencia, envía un mensaje a través de WhatsApp: <a
+                                href="https://wa.me/7772095614" target="_blank">Enviar WhatsApp</a>.<a
+                                href="https://wa.me/7772095614" target="_blank" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp fa-2x"></i>
+                            </a></p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="social-media">
+            <h2>Síguenos en nuestras redes sociales</h2>
+            <div class="icons">
+                <div class="footer-logo">
+                    <img src="images/client_ico_256.ico" alt="Logo" class="logo-img">
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=61561523894253&mibextid=ZbWKwL" target="_blank"><i
+                        class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://wa.me/7772095614" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+                <a href="https://www.messenger.com/t/USERNAME" target="_blank" aria-label="Messenger">
+                    <i class="fab fa-facebook-messenger fa-2x"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+            <div class="footer-content">
+                <div class="copyright_text">
+                    <p>Desarrollado por:</p>
+                    <p>Raul A. Alameda Ruelas</p>
+                    <a href="https://idappsh.sites/" target="_blank">IDAPPSH</a>
+                </div>
+                <div class="footer-logo">
+                    <img src="images/icorar.ico" alt="Logo" class="logo-img">
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

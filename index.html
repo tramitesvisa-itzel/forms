@@ -10,6 +10,54 @@
     <!-- Agregar iconos de redes sociales desde un CDN como FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        .header {
+            padding: 20px;
+        }
+        
+        .main-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .terms-container {
+            flex: 1;
+        }
+        
+        .telegram-container {
+            margin-left: 20px;
+            padding: 10px;
+            border: 3px solid #5efaff;
+            border-radius: 20px;
+            background-color: #3a64e2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            width: 200px; /* Ajusta este valor según necesites */
+            height: 100px; /* Ajusta este valor según necesites */
+            overflow: hidden;
+        }
+        
+        .telegram-background {
+            background-image: url('https://mlfsyec2oz9a.i.optimole.com/cb:f7Tm~49a4e/w:auto/h:auto/q:mauto/f:best/ig:avif/https://www.mediodigital.com.uy/wp-content/uploads/2023/08/Guia-Para-Instalar-Chatbot-en-Sitio-Web-Paso-a-Paso.png');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1; /* Ajusta la opacidad según sea necesario */
+        }
+        
+        .telegram-content {
+            z-index: 1;
+            color: #fdfdff;
+            text-align: center;
+        }
+        
+        
         .social-media {
             text-align: center;
             margin: 20px 0;
@@ -92,6 +140,7 @@
             /* Ajusta el tamaño del logo según necesites */
             width: auto;
         }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -308,6 +357,9 @@
                 padding: 10px 0;
             }
         }
+
+
+        
     </style>
 </head>
 
@@ -316,7 +368,7 @@
         <h1>Manual de Uso del Formulario de Información y Documentos</h1>
         <h2>Instrucciones Generales.</h2>
     </header>
-    
+
     <main>
         <section id="instrucciones" style="color:rgb(252, 252, 252);">
             <div class="instrucciones">
@@ -358,30 +410,61 @@
                         <li>Completa todos los campos obligatorios.</li>
                         <li>En caso de no estar seguro/a de la información a ingresar en alguno de los campos, solicita
                             ayuda antes de enviar el formulario.</li>
-                        <li>Si la información ingresada en alguno de los campos es incorrecta, se te solicitará volver a llenar el
+                        <li>Si la información ingresada en alguno de los campos es incorrecta, se te solicitará volver a
+                            llenar el
                             formulario con los datos correctos.</li>
                         <li>La gestora te recomendará, si fuera el caso, modificar información para aumentar la
                             probabilidad de aprobación de la visa.</li>
-                        <li>*Una vez que se encuentren tus citas finales, la asesora se encargará de dar toda la asesoría
+                        <li>*Una vez que se encuentren tus citas finales, la asesora se encargará de dar toda la
+                            asesoría
                             y tips para tu cita de entrevista.</li>
                     </ul>
                 </section>
-                <div class="header">
-                    <section>
-                        <label for="check">¿Aceptas los términos?</label>
-                        <input type="checkbox" id="check" name="check" value="true">
-                        <br><br>
-                        <hr>
-                        <button id="btn-continuar">Continuar</button>
-                        <br><br>
-                        <h2>Contacto y Soporte</h2>
-                        <p>Para dudas o asistencia, envía un mensaje a través de WhatsApp: <a
-                                href="https://wa.me/7772095614" target="_blank">Enviar WhatsApp</a>.<a
-                                href="https://wa.me/7772095614" target="_blank" aria-label="WhatsApp">
-                                <i class="fab fa-whatsapp fa-2x"></i>
-                            </a></p>
+                <div class="header" style="padding: 20px;">
+                    <section class="main-section" style="display: flex; align-items: flex-start; justify-content: space-between;">
+                        <div class="terms-container" style="flex: 1;">
+                            <label for="check">¿Aceptas los términos?</label>
+                            <input type="checkbox" id="check" name="check" value="true">
+                            <br><br>
+                            <hr>
+                            <button id="btn-continuar">Continuar</button>
+                            <br><br>
+                            <h2>Contacto y Soporte</h2>
+                            <p>
+                                Para dudas o asistencia,<br>
+                                 envía un mensaje a través de WhatsApp: 
+                                <a href="https://wa.me/7772095614" target="_blank">Enviar WhatsApp</a>.
+                                <a href="https://wa.me/7772095614" target="_blank" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp fa-2x"></i>
+                                </a>
+                            </p>
+                        </div>
+                
+                        <div class="telegram-container" style="margin-left: 0px; padding: 90px; border: 5px solid #07bdffb0; border-radius: 20px; background-color: #01050ff2; display: flex; flex-direction: column; justify-content: center; position: relative; width: 200px; height: 120px; overflow: hidden;">
+                            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/333430140/original/214f3d62081170a7b19740450adae9cb1c0848fc/craft-a-custom-python-telegram-bot-for-you.jpeg"
+                            alt="Telegram Bot" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity:1%;">
+                            <div class="telegram-content" style="z-index: 1; color: #ffffff; text-align:left; position: relative;">
+                                <h3 style="margin: 5;">Integración de Bot de Telegram</h3>
+                                <p style="margin: 10px 0;">
+                                    <!-- Sección de anuncio de Telegram -->
+                                    <div class="telegram-container" style="block-size"style=" st0px; padding: 20px; border: 5px solid #07bdffb0; border-radius: 20px; background-color: #0743f7f2; display: flex; flex-direction: column; justify-content: center; position: relative; width: 200px; height: 120px; overflow: hidden;">
+                                        <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/333430140/original/214f3d62081170a7b19740450adae9cb1c0848fc/craft-a-custom-python-telegram-bot-for-you.jpeg"
+                                            alt="Telegram Bot" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity:1000%;">
+                                        <!-- <div class="telegram-content" style="z-index: 1; color: #adcfff; text-align:right; position: relative;">
+                                            <h3 style="margin: 5;">Integración de Bot de Telegram</h3>
+                                            <p style="margin: 10px 0;">
+                                                Si necesitas asistencia o quieres interactuar con nuestro bot, simplemente busca nuestro bot en Telegram. -->
+                                            </p>
+                                        </div>
+                                    Si necesitas asistencia o quieres interactuar con nuestro bot, simplemente busca nuestro bot en Telegram.
+                                </p>
+                            </div>
+                        </div>
                     </section>
                 </div>
+                
+                
+                
             </div>
         </section>
     </main>
